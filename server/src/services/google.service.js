@@ -1,6 +1,8 @@
 // ref: https://developers.google.com/identity/sign-in/web/backend-auth
 
 import { OAuth2Client } from 'google-auth-library';
+import dotenv from 'dotenv';
+dotenv.config();
 // const client = new OAuth2Client(process.env.GOOGLE_CLIENT_ID);
 // const clientMobile = new OAuth2Client(process.env.GOOGLE_CLIENT_ID_MOBILE);
 
@@ -22,7 +24,7 @@ async function verify(googleCredential, clientId) {
   const ticket = await client.verifyIdToken({
     idToken: googleCredential,
     audience: clientId,
-    requiredAudience: clientId
+    requiredAudience: clientId,
   });
   return ticket.getPayload();
 }
