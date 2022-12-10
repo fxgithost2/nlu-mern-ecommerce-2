@@ -60,7 +60,7 @@ app.use(express.json({ limit: '30mb' }));
 
 // Routes which should handle requests
 app.get('/', (_, res) => res.render('public/index')); // home page
-// app.use('/api/v1', routesV1); // api v1 routes
+app.use('/api/v1', routesV1); // api v1 routes
 app.use('/api/v2', routesV2); // api v2 routes
 
 // Error handling
